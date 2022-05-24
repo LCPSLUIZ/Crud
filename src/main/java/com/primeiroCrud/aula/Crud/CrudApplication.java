@@ -1,12 +1,8 @@
 package com.primeiroCrud.aula.Crud;
 
-import com.primeiroCrud.aula.Crud.Model.SelectConsult;
-import com.primeiroCrud.aula.Crud.Repository.ConnectionDataBase;
-import com.primeiroCrud.aula.Crud.Repository.Exercicio;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.primeiroCrud.aula.Crud.DAO.ExercicioDAO.SelectConsult;
+import com.primeiroCrud.aula.Crud.Model.Exercicio;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 
 

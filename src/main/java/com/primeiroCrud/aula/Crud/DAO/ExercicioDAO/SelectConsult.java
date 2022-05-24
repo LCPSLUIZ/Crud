@@ -1,15 +1,12 @@
-package com.primeiroCrud.aula.Crud.Model;
+package com.primeiroCrud.aula.Crud.DAO.ExercicioDAO;
 
-import com.primeiroCrud.aula.Crud.Repository.ConnectionDataBase;
-import com.primeiroCrud.aula.Crud.Repository.Exercicio;
+import com.primeiroCrud.aula.Crud.ConnectionFactory.ConnectionDataBase;
+import com.primeiroCrud.aula.Crud.Model.Exercicio;
 
-import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class SelectConsult {
 

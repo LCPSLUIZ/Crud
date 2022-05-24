@@ -1,4 +1,4 @@
-package com.primeiroCrud.aula.Crud.Repository;
+package com.primeiroCrud.aula.Crud.ConnectionFactory;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
