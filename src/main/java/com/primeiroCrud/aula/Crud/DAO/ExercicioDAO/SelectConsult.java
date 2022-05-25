@@ -7,10 +7,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SelectConsult {
 
-    public Exercicio Select(int number) throws SQLException{
+    public Exercicio Select(int number) {  //Method with id parameter
 
         Exercicio exercicios = new Exercicio();
 
@@ -35,23 +37,26 @@ public class SelectConsult {
         return exercicios;
     }
 
-    public Exercicio Select(String name) throws SQLException{
+    public List<Exercicio> SelectAllTable() { //Method to print all the table
 
-        Exercicio exercicios = new Exercicio();
+        List<Exercicio> exercicios = new ArrayList<>();
 
         try(Connection connectionSelect = ConnectionDataBase.getConnection()) {
-            String sql = "SELECT * FROM exercicio WHERE name ILIKE ?";
+            String sql = "SELECT * FROM exercicio";
 
             PreparedStatement statement = connectionSelect.prepareStatement(sql);
-            statement.setString(1, name);
 
             ResultSet resultSelect = statement.executeQuery();
 
 
-            if (resultSelect.next()) {
-                exercicios.setExercicio_number(resultSelect.getInt("exercicio_number"));
-                exercicios.setName(resultSelect.getString("name"));
-                exercicios.setDificult_level(resultSelect.getString("dificult_level"));
+            while (resultSelect.next()) {
+                Exercicio exercicio = new Exercicio();
+
+                exercicio.setExercicio_number(resultSelect.getInt("exercicio_number"));
+                exercicio.setName(resultSelect.getString("name"));
+                exercicio.setDificult_level(resultSelect.getString("dificult_level"));
+
+                exercicios.add(exercicio);
             }
         } catch (SQLException e) {
             System.out.println("A consulta falhou!");
