@@ -48,7 +48,6 @@ public class SelectConsult {
 
             ResultSet resultSelect = statement.executeQuery();
 
-
             while (resultSelect.next()) {
                 Exercicio exercicio = new Exercicio();
 
