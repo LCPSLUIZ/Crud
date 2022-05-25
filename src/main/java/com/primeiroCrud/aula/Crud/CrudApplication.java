@@ -1,5 +1,6 @@
 package com.primeiroCrud.aula.Crud;
 
+import com.primeiroCrud.aula.Crud.DAO.ExercicioDAO.DeleteConsult;
 import com.primeiroCrud.aula.Crud.DAO.ExercicioDAO.InsertConsult;
 import com.primeiroCrud.aula.Crud.DAO.ExercicioDAO.SelectConsult;
 import com.primeiroCrud.aula.Crud.Model.Exercicio;
@@ -26,6 +27,13 @@ public class CrudApplication {
 
 		//Execute Insert
 		Insert.InsertInto("Programação", "Hard");
+
+		//--------------------------------------------------------------------------
+		DeleteConsult Delete = new DeleteConsult();
+
+		//Execute DELETE
+		Delete.DeleteMethod(12);
+
 
 
 
