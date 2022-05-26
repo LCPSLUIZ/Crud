@@ -107,11 +107,11 @@ public class NegociationROOM {
         this.newDificult = newDificult;
     }
 
-    public int getExerciceNumber(){
+    private int getExerciceNumber(){
         return exerciceNumber;
     }
 
-    public void setExerciceNumber(int exerciceNumber){
+    private void setExerciceNumber(int exerciceNumber){
         this.exerciceNumber = exerciceNumber;
     }
 }
