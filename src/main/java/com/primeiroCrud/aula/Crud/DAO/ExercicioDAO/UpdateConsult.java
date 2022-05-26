@@ -17,7 +17,7 @@ public class UpdateConsult {
             PreparedStatement prepare = connection.prepareStatement(sql);
             prepare.setString(1, newName);
             prepare.setString(2, newDificult);
-            prepare. setInt(3, WhoWillReceiveTheUpdate);
+            prepare.setInt(3, WhoWillReceiveTheUpdate);
 
             queryExecute = prepare.executeUpdate();
 

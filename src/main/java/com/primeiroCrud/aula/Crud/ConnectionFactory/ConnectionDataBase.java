@@ -20,7 +20,6 @@ public class ConnectionDataBase {
     public static Connection getConnection() throws SQLException{
         try {
             connection = DriverManager.getConnection(hostName, login, password);
-            System.out.println("Conectado com Sucesso! ");
         } catch(SQLException e) {
             System.out.println("Erro na conexão =(");
             e.printStackTrace();

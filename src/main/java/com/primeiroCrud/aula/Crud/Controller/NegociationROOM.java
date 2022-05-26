@@ -10,19 +10,17 @@ import java.util.List;
 import java.util.Scanner;
 
 public class NegociationROOM {
-    private Scanner input = new Scanner(System.in);
-    private int option;
+    private final Scanner inputInt = new Scanner(System.in);
+    private final Scanner inputName = new Scanner(System.in);
+    private final Scanner inputDificult = new Scanner(System.in);
     private int exerciceNumber;
     private String newName;
     private String newDificult;
 
     public void ControlPainel() {
+        int option;
         do {
-            System.out.println("/n /n /n /n /n /n /n /n /n /n /n /n /n /n /n " +
-                    "/n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n " +
-                    "/n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n " +
-                    "/n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n ");
-            System.out.println("- Acessor de Consultas ao Banco de Dados -");
+            System.out.println("\n\n - Acessor de Consultas ao Banco de Dados -");
             System.out.println("-----------------");
             System.out.println("O que deseja fazer?");
             System.out.println("Ver todo o conteúdo da tabela exercícios? (1) ");
@@ -32,53 +30,88 @@ public class NegociationROOM {
             System.out.println("Apagar algum registro do banco de dados? (5) ");
             System.out.println("Selecione qualquer outro valor para finalizar a aplicação! ");
 
-            option = input.nextInt();
+            option = inputInt.nextInt();
 
             if(option == 1) {
                 SelectConsult consult = new SelectConsult();
                 List<Exercicio> SelectAllTable = consult.SelectAllTable();
+
                 System.out.println("Toda a Tabela: ");
                 SelectAllTable.forEach(System.out::println);
+
             } else if(option == 2) {
                 System.out.println("Qual o numero do exercicio que você quer ver? ");
-                exerciceNumber = input.nextInt();
+                setExerciceNumber(inputInt.nextInt());
+
                 SelectConsult consult = new SelectConsult();
-                Exercicio exercicioSelect = consult.Select(exerciceNumber);
+                Exercicio exercicioSelect = consult.Select(getExerciceNumber());
                 System.out.println(exercicioSelect);
+
             } else if (option == 3) {
                 System.out.println("Qual registro você quer atualizar? ");
-                exerciceNumber = input.nextInt();
+                setExerciceNumber(inputInt.nextInt());
+
                 System.out.println("Qual será o novo nome? ");
-                newName = input.next();
+                setNewName(inputName.nextLine());
+
                 System.out.println("Qual será a nova dificuldade? ");
-                newDificult = input.next();
+                setNewDificult(inputDificult.nextLine());
+
                 UpdateConsult Update = new UpdateConsult();
-                Update.UpdateMethod(newName, newDificult, exerciceNumber);
+                Update.UpdateMethod(getNewName(), getNewDificult(), getExerciceNumber());
+
             } else if (option == 4) {
                 System.out.println("Qual o nome do novo registro? ");
-                newName = input.next();
+                setNewName(inputName.nextLine());
+
                 System.out.println("Qual será a dificuldade? ");
-                newDificult = input.next();
-                InsertConsult Insert = new InsertConsult(); //Object Insert
-                Insert.InsertInto(newName, newDificult);
+                setNewDificult(inputDificult.nextLine());
+
+                InsertConsult Insert = new InsertConsult();
+                Insert.InsertInto(getNewName(), getNewDificult());
+
             } else if (option == 5) {
                 SelectConsult consult = new SelectConsult();
                 List<Exercicio> SelectAllTable = consult.SelectAllTable();
+
                 System.out.println("Toda a Tabela: ");
                 SelectAllTable.forEach(System.out::println);
 
                 System.out.println("Qual o numero do exercicio que você deseja apagar? ");
-                exerciceNumber = input.nextInt();
+                setExerciceNumber(inputInt.nextInt());
                 DeleteConsult Delete = new DeleteConsult();
-                Delete.DeleteMethod(exerciceNumber);
+                Delete.DeleteMethod(getExerciceNumber());
             } else {
                 System.out.println("Saindo da tela de opções...");
-                System.out.println("/n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n " +
-                        "/n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n" +
-                        "/n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n" +
-                        "/n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n /n ");
+                System.out.println("\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n  " +
+                        "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n " +
+                        "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n ");
             }
         } while(option > 0 && option < 6);
         System.out.println("Finalizando aplicação ...");
+    }
+
+    private String getNewName(){
+        return newName;
+    }
+
+    private void setNewName(String newName){
+        this.newName = newName;
+    }
+
+    private String getNewDificult(){
+        return newDificult;
+    }
+
+    private void setNewDificult(String newDificult){
+        this.newDificult = newDificult;
+    }
+
+    public int getExerciceNumber(){
+        return exerciceNumber;
+    }
+
+    public void setExerciceNumber(int exerciceNumber){
+        this.exerciceNumber = exerciceNumber;
     }
 }

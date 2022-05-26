@@ -42,7 +42,7 @@ public class SelectConsult {
         List<Exercicio> exercicios = new ArrayList<>();
 
         try(Connection connectionSelect = ConnectionDataBase.getConnection()) {
-            String sql = "SELECT * FROM exercicio";
+            String sql = "SELECT * FROM exercicio ORDER BY exercicio_number";
 
             PreparedStatement statement = connectionSelect.prepareStatement(sql);
 
