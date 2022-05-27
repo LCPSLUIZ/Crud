@@ -34,7 +34,7 @@ public class NegociationROOM {
 
             if(option == 1) {
                 SelectConsult consult = new SelectConsult();
-                List<Exercicio> SelectAllTable = consult.SelectAllTable();
+                List<Exercicio> SelectAllTable = consult.Select();
 
                 System.out.println("Toda a Tabela: ");
                 SelectAllTable.forEach(System.out::println);
@@ -72,7 +72,7 @@ public class NegociationROOM {
 
             } else if (option == 5) {
                 SelectConsult consult = new SelectConsult();
-                List<Exercicio> SelectAllTable = consult.SelectAllTable();
+                List<Exercicio> SelectAllTable = consult.Select();
 
                 System.out.println("Toda a Tabela: ");
                 SelectAllTable.forEach(System.out::println);

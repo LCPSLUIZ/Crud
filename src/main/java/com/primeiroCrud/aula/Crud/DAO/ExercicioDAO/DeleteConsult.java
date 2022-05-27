@@ -12,7 +12,6 @@ public class DeleteConsult {
         int queryExecute;
         try(Connection Connection = ConnectionDataBase.getConnection()) {
             String sql = "DELETE FROM exercicio WHERE exercicio_number = ?";
-
             PreparedStatement prepare = Connection.prepareStatement(sql);
             prepare.setInt(1, exercicio_number);
 
@@ -23,5 +22,6 @@ public class DeleteConsult {
             System.out.println("O Delete deu erro");
             e.printStackTrace();
         }
+
     }
 }

@@ -37,7 +37,7 @@ public class SelectConsult {
         return exercicios;
     }
 
-    public List<Exercicio> SelectAllTable() { //Method to print all the table
+    public List<Exercicio> Select() { //Method to print all the table
 
         List<Exercicio> exercicios = new ArrayList<>();
 
