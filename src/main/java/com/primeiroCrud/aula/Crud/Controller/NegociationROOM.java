@@ -5,14 +5,15 @@ import com.primeiroCrud.aula.Crud.DAO.ExercicioDAO.InsertConsult;
 import com.primeiroCrud.aula.Crud.DAO.ExercicioDAO.SelectConsult;
 import com.primeiroCrud.aula.Crud.DAO.ExercicioDAO.UpdateConsult;
 import com.primeiroCrud.aula.Crud.Model.Exercicio;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
 import java.util.Scanner;
 
-@Getter
-@Setter
+@Getter(AccessLevel.PRIVATE)
+@Setter(AccessLevel.PRIVATE)
 public class NegociationROOM {
     private final Scanner inputInt = new Scanner(System.in);
     private final Scanner inputName = new Scanner(System.in);
